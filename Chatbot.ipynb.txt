@@ -1,0 +1,62 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMKKZx/pmMTBXZum4LEaU3J",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Nigileshwari2411/Illustro-training/blob/main/Chatbot.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5lPPKMiBQFrv",
+        "outputId": "230da3e7-cfc9-4c4b-e431-75c538d2b78c"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Welcome to AI Chatbot! Type 'exit' to stop.\n"
+          ]
+        }
+      ],
+      "source": [
+        "from google.generativeai import GenerativeModel, configure\n",
+        "configure(api_key=\"AIzaSyBOIojVzOZF1sTBnb0pjKdRtFTXatN9W9c\")\n",
+        "model = GenerativeModel(\"gemini-1.5-pro\")\n",
+        "print(\"Welcome to AI Chatbot! Type 'exit' to stop.\")\n",
+        "while True:\n",
+        "     user_input = input(\"You: \")\n",
+        "     if user_input.lower() == \"exit\":\n",
+        "         break\n",
+        "     response = model.generate_content(user_input)\n",
+        "     print(\"AI:\", response.text)"
+      ]
+    }
+  ]
+}
